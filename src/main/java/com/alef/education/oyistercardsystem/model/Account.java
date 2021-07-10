@@ -2,7 +2,6 @@ package com.alef.education.oyistercardsystem.model;
 
 
 import lombok.Data;
-
 import java.math.BigDecimal;
 
 @Data

@@ -2,9 +2,11 @@ package com.alef.education.oyistercardsystem.model;
 
 
 import com.alef.education.oyistercardsystem.enums.TransportEnum;
+import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
 
+@Slf4j
 public class TransportFare {
     public static final BigDecimal ANY_BUS_ROUTE = new BigDecimal("1.80");
     public static final BigDecimal ANY_ONE_ZONE_OUTSIDE_ZONE_1 = new BigDecimal("2.00");
@@ -17,13 +19,18 @@ public class TransportFare {
     public static final BigDecimal BASIC_TUBE_FARE = new BigDecimal("3.20");
 
 
-    public static void validade(TransportEnum transport, Account account) throws Exception {
+    public static void validade(TransportEnum transport, Account account){
 
-        if (transport.equals(TransportEnum.BUS))
-            account.validade(ANY_BUS_ROUTE);
+        try {
+            if (transport.equals(TransportEnum.BUS))
+                account.validade(ANY_BUS_ROUTE);
 
-        if (transport.equals(TransportEnum.TUBE))
-            account.validade(BASIC_TUBE_FARE);
+            if (transport.equals(TransportEnum.TUBE))
+                account.validade(BASIC_TUBE_FARE);
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        }
+
 
     }
 

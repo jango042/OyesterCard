@@ -18,25 +18,24 @@ public class JourneyService {
         try {
             Account account = new Account();
 
-            account.addMoney(OYSTER_CARD_BALANCE);
-
+            account.setAccountBalance(OYSTER_CARD_BALANCE);
             TransportJourney jorneyHolbornToCourt = new TransportJourney();
             jorneyHolbornToCourt.setStartPoint(TransportEnum.TUBE,StationAndZoneEnum.HOLBORN,account);
             jorneyHolbornToCourt.setEndPoint(StationAndZoneEnum.EARLS_COURT);
 
-            log.info("Card Balance after first journey (Tube Holborn to Earl’s Court)  is : %s \n",account.getAccountBalance());
+            log.info("Card Balance after first journey (Tube Holborn to Earl’s Court)  is : {} \n",account.getAccountBalance());
 
             TransportJourney jorneyBusEarlToChelsea = new TransportJourney();
             jorneyBusEarlToChelsea.setStartPoint(TransportEnum.BUS,null,account);
             jorneyBusEarlToChelsea.setEndPoint(null);
 
-            log.info("Card Balance after second journey (328 bus from Earl’s Court to Chelsea) is : %s \n",account.getAccountBalance());
+            log.info("Card Balance after second journey (328 bus from Earl’s Court to Chelsea) is : {} \n",account.getAccountBalance());
 
             TransportJourney jorneyEarlsToHammersmith = new TransportJourney();
             jorneyEarlsToHammersmith.setStartPoint(TransportEnum.TUBE, StationAndZoneEnum.EARLS_COURT, account);
             jorneyEarlsToHammersmith.setEndPoint(StationAndZoneEnum.HAMMERSMITH);
 
-            log.info("Card Balance after third journey (Tube Earl’s court to Hammersmith)  is : %s \n",account.getAccountBalance());
+            log.info("Card Balance after third journey (Tube Earl’s court to Hammersmith)  is : {} \n",account.getAccountBalance());
         } catch (Exception e) {
             log.info(e.getMessage());
         }

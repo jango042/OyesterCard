@@ -19,12 +19,7 @@ public class OystercardsystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OystercardsystemApplication.class, args);
 
-//		ApplicationContext applicationContext = SpringApplication.run(OystercardsystemApplication.class, args);
-//		JourneyService service = applicationContext.getBean(JourneyService.class);
-//		service.calculateJourney();
 
-		JourneyService userLoginRepo = (JourneyService) SpringApplicationContext.getBean("journeyService");
-		userLoginRepo.calculateJourney();
 	}
 
 
